@@ -8,19 +8,20 @@ A = rand(size_of_matrix)
 b = rand(size_of_matrix, 1)  
 A_tilde = [A b]  
 
-if (rank(A_tilde) == rank(A) && rank(A) == size_of_matrix)  
-    disp("As rank of augmented matrix and coeffiecient matrix is same, so system had unique solns")  
+if(rank(A_tilde) == rank(A) && rank(A) == size_of_matrix)  
+    disp('As rank of augmented matrix and coeffiecient matrix is same, so system had unique solns')  
 else  
-    disp("System can not be solved using Gauss method")  
-end;  
+    disp('System can not be solved using Gauss method')  
+	exit  
+end  
 
 for column_no=1:size_of_matrix-1  
 	temp_matrix=A_tilde(column_no:size_of_matrix,column_no)  
-	max_item, index_of_max=max(abs(temp_matrix))  
+	[max_item,index_of_max]=max(abs(temp_matrix))  
 	if index_of_max ~= column_no  
 		temp=A_tilde(column_no,:)  
 		A_tilde(column_no,:)=A_tilde(index_of_max+column_no-1,:)  
-		A_tilde(index_of_max+column_no-1,:)=A_tilde(temp)  
+		A_tilde(index_of_max+column_no-1,:)=temp  
     for row_no=column_no+1:size_of_matrix  
         multiplier=A_tilde(row_no,column_no)/A_tilde(column_no,column_no)  
         A_tilde(row_no,:)=A_tilde(row_no,:)-multiplier*A_tilde(column_no,:)  
@@ -28,6 +29,7 @@ for column_no=1:size_of_matrix-1
 end  
 
 result_matrix=zeros(size_of_matrix,1)
+result_row_no=size_of_matrix
 
 while result_row_no > 0   
     temp=A_tilde(result_row_no,result_row_no+1)/A_tilde(result_row_no,result_row_no)  
