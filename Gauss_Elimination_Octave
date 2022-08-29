@@ -1,36 +1,30 @@
 
-in = input("Enter size of matrix: ")  
+size_of_matrix = input("Enter size of nxn matrix: ")  
 
-A = rand(in)  
-b = rand(in, 1)  
-At = [A b]  
+A = rand(size_of_matrix)  
+b = rand(size_of_matrix, 1)  
+A_tilde = [A b]  
 
-if (rank(At) == rank(A) && rank(A) == in)  
+if (rank(A_tilde) == rank(A) && rank(A) == size_of_matrix)  
     disp("As rank of augmented matrix and coeffiecient matrix is same, so system had unique solns")  
 else  
     disp("System can not be solved using Gauss method")  
 end;  
 
-for i=1:in-1
-    for j=i+1:in
-        temp=At(j,i)/At(i,i)
-        At(j,:)=At(j,:)-temp*At(i,:)
+for column_no=1:in-1
+    for row_no=column_no+1:size_of_matrix
+        multiplier=A_tilde(row_no,column_no)/A_tilde(column_no,column_no)
+        A_tilde(row_no,:)=A_tilde(row_no,:)-multiplier*A_tilde(column_no,:)
     end
-end
-
-for i=0:in-1 
-    x=At(in-i,in-i+1)/At(in-i,in-i)  
 end  
-  
 
-while k > 0   
-    temp=At(k,k+1)/At(k,k)  
+while result_row_no > 0   
+    temp=A_tilde(result_row_no,result_row_no+1)/A_tilde(result_row_no,result_row_no)  
 	sum=0  
-    for i=k:in-1  
-		sum+=(At(i,i+1)*t(i+1,1))/At(i,i)  
+    for item=result_row_no:size_of_matrix-1  
+		sum+=(A_tilde(item,item+1)*t(item+1,1))/A_tilde(item,item)  
 	end  
-	t(k,1)=temp-sum  
-	k = k -1  
+	t(result_row_no,1)=temp-sum  
+	result_row_no=result_row_no-1  
 end  
-
 
