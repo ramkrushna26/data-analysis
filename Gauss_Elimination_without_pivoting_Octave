@@ -1,5 +1,8 @@
 
 size_of_matrix = input("Enter size of nxn matrix: ")  
+floating_num_pricision = input("Enter floating number precision: ")  
+
+output_precision(floating_num_pricision+1)
 
 A = rand(size_of_matrix)  
 b = rand(size_of_matrix, 1)  
