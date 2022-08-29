@@ -32,4 +32,5 @@ end
 
 for item=1:size_of_matrix   
     fprintf('x(%d) = %f\n',item,result_matrix(item))  
-end  
+end   
+
