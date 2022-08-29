@@ -17,7 +17,7 @@ for i=0:in-2
     At(in-i,:)=At(in-i,:)-At(1,:)  
 end  
 
-for i=0:in-1  
-    x(in-i)=At(in-i,in-i+1)/At(in-i,in-i)  
+for i=0:in-1 
+    x=At(in-i,in-i+1)/At(in-i,in-i)  
 end  
   
