@@ -22,3 +22,15 @@ for i=0:in-1
     x=At(in-i,in-i+1)/At(in-i,in-i)  
 end  
   
+
+while k > 0   
+    temp=At(k,k+1)/At(k,k)  
+	sum=0  
+    for i=k:in-1  
+		sum+=(At(i,i+1)*t(i+1,1))/At(i,i)  
+	end  
+	t(k,1)=temp-sum  
+	k = k -1  
+end  
+
+
