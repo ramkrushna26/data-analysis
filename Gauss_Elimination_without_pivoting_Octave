@@ -11,7 +11,7 @@ else
     disp("System can not be solved using Gauss method")  
 end;  
 
-for column_no=1:in-1
+for column_no=1:size_of_matrix-1
     for row_no=column_no+1:size_of_matrix
         multiplier=A_tilde(row_no,column_no)/A_tilde(column_no,column_no)
         A_tilde(row_no,:)=A_tilde(row_no,:)-multiplier*A_tilde(column_no,:)
