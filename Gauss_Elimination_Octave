@@ -1,0 +1,19 @@
+
+in = input(Enter size of matrix: )  
+
+A = rand(in)  
+b = rand(in, 1)  
+At = [A b]  
+
+if (rank(At) == rank(A) && rank(A) == in)  
+    disp("As rank of augmented matrix and coeffiecient matrix is same, so system had unique solns")  
+else  
+    disp("System can not be solved using Gauss method")  
+end;  
+
+for i=0:in-2  
+    temp=At(1)/At(in-i)  
+    At(in-i,:)=temp*At(in-i,:)  
+    At(in-i,:)=At(in-i,:)-At(1,:)  
+end  
+
