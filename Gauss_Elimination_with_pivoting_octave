@@ -15,7 +15,7 @@ else
 end;  
 
 for column_no=1:size_of_matrix-1  
-	temp_matrix=At(i:in,i)  
+	temp_matrix=At(i:size_of_matrix,i)  
 	max_item, index_of_max=max(abs(temp_matrix))  
 	if index_of_max ~= i  
 		temp=At(i,:)  
