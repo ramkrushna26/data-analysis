@@ -11,11 +11,12 @@ else
     disp("System can not be solved using Gauss method")  
 end;  
 
-for i=0:in-2  
-    temp=At(1)/At(in-i)  
-    At(in-i,:)=temp*At(in-i,:)  
-    At(in-i,:)=At(in-i,:)-At(1,:)  
-end  
+for i=1:in-1
+    for j=i+1:in
+        temp=At(j,i)/At(i,i)
+        At(j,:)=At(j,:)-temp*At(i,:)
+    end
+end
 
 for i=0:in-1 
     x=At(in-i,in-i+1)/At(in-i,in-i)  
