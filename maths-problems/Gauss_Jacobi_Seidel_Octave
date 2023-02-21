@@ -1,0 +1,35 @@
+size_of_matrix=input("Enter size of nxn matrix: ")  
+no_of_iterations=input("Enter the number of iterations: ")
+
+A=randn(size_of_matrix)  
+b=randn(size_of_matrix, 1)  
+A_tilde=[A b]  
+
+I=eye(size_of_matrix)  
+L=zeros(size_of_matrix)  
+U=zeros(size_of_matrix)  
+
+for row=1:size_of_matrix  
+	for column=1:size_of_matrix  
+		if(row==column)  
+			A(row,:)=A(row,:)/A(row,column)  
+		end  
+	end  
+end  
+  
+
+for row=1:size_of_matrix  
+	for column=1:row  
+		if(row~=column)  
+			L(row,column)=A(row,column)  
+		end  
+	end  
+end  
+
+for row=1:size_of_matrix  
+	for column=row+1:size_of_matrix  
+		if(row~=column)  
+			U(row,column)=A(row,column)  
+		end  
+	end  
+end  
