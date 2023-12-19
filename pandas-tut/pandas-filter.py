@@ -87,15 +87,7 @@ print("\nRohit innings with more runs more than 50: \n",
 	df.query("Batsman_Name == 'Rohit Sharma' and Runs > 50"))
 
 
-
-
-
-
-
-
-
-
-
+print("\nGet Teams: \n", df["Team_Innings"].unique())
 
 
 
