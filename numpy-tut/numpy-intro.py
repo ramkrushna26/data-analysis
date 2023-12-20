@@ -42,11 +42,3 @@ print("\nsequence of occurences of (9.4): \n", arr, "\n===", repr(arr).count("9,
 
 
 
-
-
-
-
-
-
-
-

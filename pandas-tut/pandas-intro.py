@@ -5,7 +5,7 @@ import re
 df = pd.read_csv("../../data/batting_summary.csv")
 
 # Handling non-numeric cases
-df["Strike_Rate"] = pd.to_numeric(df["Strike_Rate"].str.replace('-', ''), errors="coerce").fillna(0.00).astype(float)
+df["Strike_Rate"] = pd.to_numeric(df["Strike_Rate"].str.replace('-', ''), errors="coerce").fillna(0.00)
 df["Strike_Rate"] = df["Strike_Rate"].astype(float)
 
 print("\nSort dataframe based on Match_no&Batting_Position: \n", 
@@ -30,8 +30,8 @@ df_grp = df[["Match_no", "Team_Innings"]].drop_duplicates().groupby(["Team_Innin
 print("\nGet the Match_no played by team India: \n", 
 	df_grp.get_group("India"))
 
-df_4s = df[["Batsman_Name","4s"]].groupby(["Batsman_Name"]).sum()
-df_6s = df[["Batsman_Name","6s"]].groupby(["Batsman_Name"]).sum()
+df_4s = df[["Batsman_Name","4s"]].groupby(["Batsman_Name"])["4s"].sum()
+df_6s = df[["Batsman_Name","6s"]].groupby(["Batsman_Name"])["6s"].sum()
 print("\nNo of 4s&6s hit by Batsman_Name: \n", 
 	pd.concat([df_4s, df_6s], axis=1).sort_values(by=["4s","6s"], ascending=[False,False]))
 

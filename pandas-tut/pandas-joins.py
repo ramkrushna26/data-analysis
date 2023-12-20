@@ -20,5 +20,6 @@ print("\nInner Join: \n", pd.merge(df_first, df_last, on="id", how="inner"))
 print("\nLeft Join: \n", pd.merge(df_first, df_last, on="id", how="left"))
 print("\nRight Join: \n", pd.merge(df_first, df_last, on="id", how="right"))
 print("\nOuter Join: \n", pd.merge(df_first, df_last, on="id", how="outer"))
+print("\nOuter Join: \n", df_first.join(df_last))
 
 print("\nIndex Join: \n", pd.merge(df_first, df_last, left_index=True, right_index=True))

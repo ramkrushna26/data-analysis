@@ -27,7 +27,7 @@ df_balls = df["Balls"] > 0
 print("\nGet all batsman who scored Zero: \n", 
 	df[df_zero & df_balls][["Match_Between","Batsman_Name"]].head())
 
-print("\nGet all batsman who scored between 100 or 200: \n", 
+print("\nGet all batsman who scored between 150 or 200: \n", 
 	df[df["Runs"].between(150,200)][["Batsman_Name","Runs"]].head())
 
 print("\nno of record in dataframe: \n", df.index)
@@ -86,11 +86,30 @@ print("\nBatsmans who hit more than 5 sixes: \n",
 print("\nRohit innings with more runs more than 50: \n", 
 	df.query("Batsman_Name == 'Rohit Sharma' and Runs > 50"))
 
-
 print("\nGet Teams: \n", df["Team_Innings"].unique())
 
+print("\nGet record of max runs scored by batsman: \n", 
+	df.iloc[df["Runs"].idxmax()], df["Runs"].idxmax())
 
+print("\nGet Teams in lower case: \n", 
+	df["Team_Innings"].drop_duplicates().str.lower())
 
+print("\ntimestamp of 2023-02-11: \n",
+	pd.Timestamp("2023-02-11"))
 
+#To convert string date field to datetime type 
+#pd.to_datetime(df["date_column"])
+
+print("\ntimestamp of 2023-02: \n",
+	pd.Period("2023-02"))
+
+print("\nStatistics of Rohit Sharma: \n", 
+	df.loc[(df["Batsman_Name"] == "Rohit Sharma"), ["Batsman_Name", "Runs"]].describe())
+
+print("\nStd of runs scored by Rohit Sharma: \n", 
+	df.loc[(df["Batsman_Name"] == "Rohit Sharma"), ["Batsman_Name", "Runs"]].std(numeric_only=True))
+
+print("\nMedian of runs scored by Rohit Sharma: \n", 
+	df.loc[(df["Batsman_Name"] == "Rohit Sharma"), ["Batsman_Name", "Runs"]].median(numeric_only=True))
 
 
