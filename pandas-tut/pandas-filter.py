@@ -1,26 +1,6 @@
-import pandas as pd
 
-df = pd.read_csv("../../data/batting_summary.csv")
 
-print("\nNo of records in dataframe: ", len(df.index))
 
-# Squeeze will squeeze single row dataframe into Series
-# Squeeze will squeeze series into scalars
-dfs = pd.read_csv("../../data/batting_summary.csv", usecols=["Team_Innings"]).squeeze(axis=1)
-
-def check_india(ind):
-	if ind == "India":
-		return True
-	else:
-		return False
-
-print(dfs.apply(check_india).head())
-
-print("\nGet all innings by Rohit: \n", 
-	df[df["Batsman_Name"] == "Rohit Sharma"])
-
-print("\nGet all batsman who scored 100 or more: \n", 
-	df[df["Runs"] >= 100][["Batsman_Name","Runs"]].head())
 
 df_zero = df["Runs"] == 0
 df_balls = df["Balls"] > 0
@@ -64,8 +44,8 @@ print("\ndrop column strike_rate: \n",
 	df.drop(["Strike_Rate"], axis=1).head())
 
 # Remove column from dataframe
-#print(df.pop("Strike_Rate"))
-#print(df.head())
+# print(df.pop("Strike_Rate"))
+# print(df.head())
 
 print("\nSample: \n", df.sample())
 
